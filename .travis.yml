@@ -34,11 +34,10 @@ deploy:
   api_key:
     secure: 3d8bdc35-ed28-4b3d-ba3b-c109e49a6d7f
     app: empleados12
-    
   provider: script 
   script:
     # push to dockerhub
-    docker push dialcha/employee-backend;
+    docker push 101233/lab7;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
     heroku container:release web --app $HEROKU_APP_NAME
   
