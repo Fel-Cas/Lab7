@@ -28,6 +28,10 @@ script:
 - cd bootdocker
 - docker build -t 101233/lab7 .
 - docker tag 101233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
+deploy:
+  provider: heroku
+  api_key:
+    secure: "$HEROKU_PASSWORD"
 deploy: 
   provider: script 
   script:
@@ -35,6 +39,7 @@ deploy:
     docker push dialcha/employee-backend;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
     heroku container:release web --app $HEROKU_APP_NAME
+  
   on:
     branch: master
 
