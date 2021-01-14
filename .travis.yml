@@ -3,30 +3,4 @@
 sudo: required
 language: java
 jdk:
-- oraclejdk9
-services:
-- mysql
-- docker
-dist: trusty
-sudo: required
-addons:
-apt:
-packages:
-- mysql-server-5.7
-- mysql-client-core-5.7
-- mysql-client-5.7
-before_script:
-- mysql -u root -e 'CREATE DATABASE empleado;'
-- mysql -u root -e "CREATE USER 'sa'@'localhost' IDENTIFIED BY 'sa';"
-- mysql -u root -e "GRANT ALL ON employee.* TO 'sa'@'localhost';"
-before_install:
-script:
-- cd bootdocker
-- docker build -t dialcha/employee-backend .
-deploy:
-  provider: script
-  script:
-    # push to dockerhub
-    docker push dialcha/employee-backend;
-  on:
-    branch: master
+- oraclejdk8
