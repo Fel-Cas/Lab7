@@ -18,11 +18,7 @@ before_script:
 - mysql -u root -e 'CREATE DATABASE empleado;'
 - mysql -u root -e "CREATE USER 'sa'@'localhost' IDENTIFIED BY 'sa';"
 - mysql -u root -e "GRANT ALL ON empleado.* TO 'sa'@'localhost';"
-deploy:
-  provider: heroku
-  api_key:
-    secure: $HEROKU_PASSWORD
-    app: empleados12
+
 
 before_install:
 # install heroku CLI
@@ -34,7 +30,11 @@ script:
 - cd bootdocker
 - docker build -t 101233/lab7 .
 - docker tag 101233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
-
+deploy:
+  provider: heroku
+  api_key:
+    secure: "3d8bdc35-ed28-4b3d-ba3b-c109e49a6d7f"
+    app: empleados12
 deploy: 
   provider: script 
   script:
