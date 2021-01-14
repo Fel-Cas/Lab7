@@ -29,7 +29,7 @@ script:
 - docker build -t 101233/lab7 .
 - docker tag 101233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:
-  provider: script
+  provider: script 
   script:
     # push to dockerhub
     docker push dialcha/employee-backend;
