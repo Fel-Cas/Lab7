@@ -23,7 +23,7 @@ before_install:
 - wget -qO- https://toolbelt.heroku.com/install.sh | sh
 - chmod +x mvnw
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- echo "$HEROKU_PASSWORD" | docker login -i "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+- echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 script:
 - cd bootdocker
 - docker build -t 101233/lab7 .
