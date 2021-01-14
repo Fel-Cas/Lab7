@@ -7,7 +7,6 @@ services:
 - mysql
 - docker
 dist: trusty
-sudo: required
 addons:
 apt:
 packages:
@@ -35,7 +34,7 @@ deploy:
   api_key:
     secure: 3d8bdc35-ed28-4b3d-ba3b-c109e49a6d7f
     app: empleados12
-deploy: 
+    
   provider: script 
   script:
     # push to dockerhub
