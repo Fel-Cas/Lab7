@@ -33,7 +33,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: "3d8bdc35-ed28-4b3d-ba3b-c109e49a6d7f"
+    secure: 3d8bdc35-ed28-4b3d-ba3b-c109e49a6d7f
     app: empleados12
 deploy: 
   provider: script 
