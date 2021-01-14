@@ -28,7 +28,7 @@ script:
 - cd bootdocker
 - docker build -t 101233/lab7 .
 - docker tag 101233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
-deploy:
+deploy: 
   provider: script 
   script:
     # push to dockerhub
