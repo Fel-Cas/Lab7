@@ -28,7 +28,7 @@ before_install:
 script:
 - cd bootdocker
 - docker build -t 101233/persona .
-- docker tag 101233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
+- docker tag 101233/persona registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:
   provider: script 
   script:
