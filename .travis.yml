@@ -27,14 +27,13 @@ before_install:
 - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 script:
 - cd bootdocker
-- docker build -t 101233/lab7 .
+- docker build -t 101233/persona .
 - docker tag 101233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:
   provider: script 
   script:
     # push to dockerhub
-    docker tag 1001233/lab7;
-    docker push 1001233/lab7;
+    docker push 101233/persona;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
     heroku container:release web --app $HEROKU_APP_NAME
   
