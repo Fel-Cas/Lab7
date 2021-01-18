@@ -31,16 +31,12 @@ script:
 - docker tag 1001233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:
    
-  provider: script 
-  script:
-    # push to dockerhub
-    docker push 11001233/lab7;
-    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    heroku container:release web --app $HEROKU_APP_NAME
-  
-  on:
-    branch: master
-
+  provider: heroku
+  skip_cleanup: true
+  keep-history: true
+  api-key:
+    secure: $HEROKU_PASSWORD
+  app: empleados12
 
 
   
