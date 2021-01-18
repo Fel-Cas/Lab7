@@ -32,10 +32,6 @@ script:
 - docker tag 1001233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:   
   provider: heroku
-  skip_cleanup: true
-  keep-history: true
-  api-key:
-    secure: $HEROKU_PASSWORD
+  api_key:
+    secure: e4538a22-4aec-4c71-9ebc-1de9670530c4
   app: empleados12
-
-  
