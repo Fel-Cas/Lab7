@@ -38,5 +38,4 @@ deploy:
     secure: $HEROKU_PASSWORD
   app: empleados12
 
-
   
