@@ -26,12 +26,13 @@ before_install:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker login --username=$HEROKU_USERNAME --password=$HEROKU_PASSWORD registry.heroku.com
 
-script:
-- cd bootdocker
-- docker build -t 1001233/lab7 .
-- docker tag 1001233/lab7 registry.heroku.com/$HEROKU_APP_NAME/web
-deploy:   
-  provider: heroku
-  api_key:
-    secure: e4538a22-4aec-4c71-9ebc-1de9670530c4
-  app: empleados12
+deploy:
+  provider: script
+  script:
+    # push to dockerhub
+    #
+    docker push danielaocampo/empleado-back;
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+    heroku container:release web --app $HEROKU_APP_NAME
+  on:
+    branch: master
